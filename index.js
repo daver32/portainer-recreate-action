@@ -1,6 +1,6 @@
 const core = require("@actions/core");
 
-await run();
+run();
 
 async function run() {
   try {
