@@ -1,0 +1,22 @@
+name: "Portainer Recreate Action"
+description: "Recreate a container in portainer"
+inputs:
+  portainer_url:
+    description: "Base url of portainer"
+    required: true
+  portainer_apikey:
+    description: "Portainer api key"
+    required: true
+  env_name:
+    description: "Environment name"
+    required: true
+    default: "local"
+  container_name:
+    description: "Container name"
+    required: true
+outputs:
+  time: # id of output
+    description: "The time we greeted you"
+runs:
+  using: "node20"
+  main: "index.js"
