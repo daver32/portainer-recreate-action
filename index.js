@@ -32,7 +32,7 @@ async function run() {
 }
 
 async function getEnvId(params) {
-  const response = await fetch(`${portainerUrl}/api/endpoints`, {
+  const response = await fetch(`${params.portainerUrl}/api/endpoints`, {
     method: "GET",
     headers: { ...params.authHeader },
   });
@@ -44,7 +44,7 @@ async function getEnvId(params) {
 
 async function getContainerId(envId, params) {
   const response = await fetch(
-    `${portainerUrl}/api/endpoints/${envId}/docker/containers/json?all=true`,
+    `${params.portainerUrl}/api/endpoints/${envId}/docker/containers/json?all=true`,
     {
       method: "GET",
       headers: { ...params.authHeader },
@@ -61,7 +61,7 @@ async function getContainerId(envId, params) {
 
 async function recreateContainer(containerId, envId, params) {
   await fetch(
-    `${portainerUrl}/api/docker/${envId}/containers/${containerId}/recreate`,
+    `${params.portainerUrl}/api/docker/${envId}/containers/${containerId}/recreate`,
     {
       method: "POST",
       headers: { ...params.authHeader, "Content-Type": "application/json" },
